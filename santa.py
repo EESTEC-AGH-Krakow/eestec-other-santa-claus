@@ -34,10 +34,8 @@ def deliver_gift(row):
                         "<img src=\"cid:{yolo}\" \>"
                         "</body></html>".format(yolo=yolo[1:-1]), subtype='html')
 
-    if row[0] and (row[0].lower() == "kuba" or not row[0][-1].lower() == 'a'):
-        mikolaj = choice(["pani_mikolaj1.jpg", "pani_mikolaj2.jpg", "pani_mikolaj3.jpg"])
-    else:
-        mikolaj = choice(["mikolaj1.jpg", "mikolaj2.jpg", "mikolaj3.jpg"])
+    if (row[0]):
+        mikolaj = choice(["mik1.jpg", "mik2.jpg", "mik3.jpg", "mik4.jpg"])
 
     with open(mikolaj, 'rb') as img:
         msg.get_payload()[0].add_related(img.read(), 'image', 'jpg', cid=yolo)
